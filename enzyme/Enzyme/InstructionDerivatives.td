@@ -784,7 +784,7 @@ def : IntrPattern<(Op $x),
 
 def : IntrPattern<(Op $x),
                   [["sqrt"]],
-                  [(Select (FCmpUEQ $x, (ConstantFP<"0"> $x)), (ConstantFP<"0"> $x), (FDiv (DiffeRet), (FMul (ConstantFP<"2"> $x), (Call<(SameFunc), [ReadNone,NoUnwind]> $x))))],
+                  [(FDiv (DiffeRet), (FMul (ConstantFP<"2"> $x), (Call<(SameFunc), [ReadNone,NoUnwind]> $x)))],
                   (ForwardFromSummedReverse)
                  >;
 
